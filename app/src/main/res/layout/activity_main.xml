@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:background="#FFFFFF"
+
     tools:context=".MainActivity">
 
     <EditText
@@ -17,9 +17,11 @@
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
-        android:hint="name"
+        android:hint="Username"
+        android:paddingLeft="10px"
         android:inputType="textPersonName"
-        android:text="Username"
+
+        android:background="@drawable/victore_input_text"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
@@ -33,20 +35,23 @@
         android:layout_marginTop="32dp"
         android:ems="10"
         android:background="@drawable/victore_input_text"
-
+        android:hint="Password"
+        android:paddingLeft="10px"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7"
-        tools:text="Password" />
+       />
 
     <Button
         android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="154dp"
+        android:layout_height="50dp"
         android:layout_marginTop="72dp"
         android:text="Login"
-        android:textColor="#FDFCFC"
+
+        android:background="@drawable/victore_button"
+
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword5"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword5"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
