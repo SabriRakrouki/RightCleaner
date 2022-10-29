@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editTextTextPersonName7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="152dp"
         android:ems="10"
+        android:hint="name"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/victore_input_text"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -24,20 +27,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="33dp"
         android:ems="10"
+        android:background="@drawable/victore_input_text"
+
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName7"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName7"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="260dp"
-        android:text="Button"
+        android:id="@+id/btnLogIn"
+        android:layout_width="186dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/victore_button"
+        android:text=" Log in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword5"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword5"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword5"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.513" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
