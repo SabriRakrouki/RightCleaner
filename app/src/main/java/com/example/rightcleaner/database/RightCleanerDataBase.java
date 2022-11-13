@@ -7,9 +7,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.rightcleaner.dao.UserDAO;
+import com.example.rightcleaner.dao.UserServiceProviderDAO;
 import com.example.rightcleaner.entity.User;
+import com.example.rightcleaner.entity.UserServiceProvider;
 
-@Database(entities = {User.class},version = 1)
+@Database(entities = {User.class, UserServiceProvider.class},version = 1)
 public abstract class RightCleanerDataBase extends RoomDatabase {
     private static final String dbName="RightCleaner";
     private static RightCleanerDataBase rightCleanerDataBase;
@@ -22,5 +24,6 @@ public abstract class RightCleanerDataBase extends RoomDatabase {
         return rightCleanerDataBase;
     }
     public abstract UserDAO userDAO();
+    public abstract UserServiceProviderDAO userServiceProviderDAO();
 
 }
