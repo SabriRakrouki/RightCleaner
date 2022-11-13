@@ -1,2 +1,7 @@
-package com.example.rightcleaner.entity;public class UserServiceProvider {
+package com.example.rightcleaner.entity;
+
+import androidx.room.Entity;
+
+@Entity
+public class UserServiceProvider extends User{
 }
