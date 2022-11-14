@@ -80,19 +80,13 @@
       app:layout_constraintStart_toStartOf="@+id/usernameService"
       app:layout_constraintTop_toBottomOf="@+id/emailService" />
 
-  <EditText
-      android:id="@+id/priceService"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="24dp"
-      android:background="@drawable/victore_input_text"
-      android:ems="10"
-      android:hint="Price"
-      android:inputType="number"
-      android:paddingLeft="10px"
-      app:layout_constraintEnd_toEndOf="@+id/passwordService"
-      app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toStartOf="@+id/passwordService"
+  <Spinner
+      android:id="@+id/price"
+      android:layout_width="211dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="36dp"
+      app:layout_constraintEnd_toEndOf="@+id/service"
+      app:layout_constraintStart_toStartOf="@+id/service"
       app:layout_constraintTop_toBottomOf="@+id/service" />
 
   <TextView

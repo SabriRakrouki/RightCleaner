@@ -12,7 +12,7 @@ import java.util.List;
 
 @Dao
 public interface UserServiceProviderDAO {
-    @Query("SELECT * FROM users")
+    @Query("SELECT * FROM UserServiceProvider")
     List<UserServiceProvider> getAll();
     @Insert
     void register(UserServiceProvider userServiceProvider);

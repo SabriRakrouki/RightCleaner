@@ -1,14 +1,16 @@
 package com.example.rightcleaner.entity;
 
+import static androidx.room.ForeignKey.CASCADE;
+
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-
+import androidx.room.ForeignKey;
 @Entity
 public class UserServiceProvider extends User{
     @ColumnInfo(name = "service")
     String service;
     @ColumnInfo(name = "price")
-    Float price;
+    String price;
 
     public String getService() {
         return service;
@@ -18,11 +20,11 @@ public class UserServiceProvider extends User{
         this.service = service;
     }
 
-    public Float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }
