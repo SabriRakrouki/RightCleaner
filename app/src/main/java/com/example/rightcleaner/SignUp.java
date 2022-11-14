@@ -3,6 +3,7 @@ package com.example.rightcleaner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,18 +25,20 @@ public class SignUp extends AppCompatActivity {
         phoneNumber=findViewById(R.id.phoneN);
         pass=findViewById(R.id.pass);
       Button  signup=findViewById(R.id.btnSignup);
-        /*signup.setOnClickListener(new View.OnClickListener() {
+        signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 User nUser=new User();
+                RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
+
+                final UserDAO userDAO=rightCleanerDataBase.userDAO();
                     nUser.setEmail(email.getText().toString());
                     nUser.setPassword(pass.getText().toString());
                     nUser.setPhoneNumber(phoneNumber.getText().toString());
                     nUser.setRole("simpleUser");
                     if(validateInput(nUser)){
-                        RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-                       final UserDAO userDAO=rightCleanerDataBase.userDAO();
+
                        new Thread(new Runnable() {
                            @Override
                            public void run() {
@@ -52,13 +55,8 @@ public class SignUp extends AppCompatActivity {
                     }else {
                         Toast.makeText(getApplicationContext(),"Make sure to fill all the fields",Toast.LENGTH_SHORT).show();
                     }
+                Log.i("data",userDAO.toString());
 
-            }
-        });*/
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println("tet");
             }
         });
 

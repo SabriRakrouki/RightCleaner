@@ -9,14 +9,14 @@ import androidx.room.RoomDatabase;
 import com.example.rightcleaner.dao.UserDAO;
 import com.example.rightcleaner.entity.User;
 
-@Database(entities = {User.class},version = 1)
+@Database(entities = {User.class},exportSchema = true,version = 1)
 public abstract class RightCleanerDataBase extends RoomDatabase {
     private static final String dbName="RightCleaner";
     private static RightCleanerDataBase rightCleanerDataBase;
     public static synchronized RightCleanerDataBase getRightCleanerDataBase(Context context){
         if(rightCleanerDataBase==null){
             rightCleanerDataBase= Room.databaseBuilder(context,RightCleanerDataBase.class,dbName)
-                    .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
                     .build();
         }
         return rightCleanerDataBase;

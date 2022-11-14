@@ -10,6 +10,10 @@ public class User {
     Integer id;
     @ColumnInfo(name = "password")
     String password;
+    @ColumnInfo(name = "name")
+    String name;
+    @ColumnInfo(name = "familyName")
+    String familyName;
     @ColumnInfo(name = "email")
     String email;
     @ColumnInfo(name = "phoneNumber")
@@ -25,7 +29,21 @@ public class User {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
+    }
 
     public String getPassword() {
         return password;
