@@ -8,7 +8,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.migration.AutoMigrationSpec;
 import androidx.room.migration.Migration;
-
 import com.example.rightcleaner.dao.UserDAO;
 import com.example.rightcleaner.dao.UserServiceProviderDAO;
 import com.example.rightcleaner.entity.User;
