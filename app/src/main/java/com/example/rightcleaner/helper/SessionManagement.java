@@ -25,6 +25,7 @@ public class SessionManagement {
     public static final String KEY_ID = "id";
 
     public static final String KEY_PASSWORD = "password";
+    public static final String KEY_SERVICE_CHOICE = "service_choice";
 
 
     public SessionManagement (Context context){
@@ -76,6 +77,16 @@ public class SessionManagement {
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         _context.startActivity(i);
+    }
+
+    public void setServiceChoiceSession(String service){
+        editor.putString(KEY_SERVICE_CHOICE,service);
+        editor.commit();
+    }
+    public HashMap<String , String> getServiceChoice(){
+        HashMap<String, String> service = new HashMap<String, String>();
+        service.put(KEY_SERVICE_CHOICE,pref.getString(KEY_SERVICE_CHOICE,null));
+        return service;
     }
 
 }

@@ -6,7 +6,11 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".SimpleUserHomePage">
-
+ <include
+    android:id="@+id/toolbar"
+    layout="@layout/test"
+    tools:layout_editor_absoluteX="16dp"
+    tools:layout_editor_absoluteY="140dp" />
     <Button
         android:id="@+id/HouseCleaningBtn"
         android:layout_width="165dp"

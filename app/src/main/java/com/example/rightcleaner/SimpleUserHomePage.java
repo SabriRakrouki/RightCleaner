@@ -20,7 +20,6 @@ public class SimpleUserHomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         sessionManagement=new SessionManagement(this);
         rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
         userDAO=rightCleanerDataBase.userDAO();
@@ -41,7 +40,7 @@ public class SimpleUserHomePage extends AppCompatActivity {
         SessionManagement sessionManagement = new SessionManagement(getApplicationContext());
         switch (item.getItemId()) {
             case R.id.homeP: {
-                startActivity(new Intent(this,SimpleUserHomePage.class));
+                startActivity(new Intent(this,ServiceChoice.class));
                 break;
             }
             case R.id.profileP:{

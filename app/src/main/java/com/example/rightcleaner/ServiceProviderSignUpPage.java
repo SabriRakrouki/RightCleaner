@@ -18,6 +18,7 @@ import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.entity.User;
 import com.example.rightcleaner.entity.UserServiceProvider;
 import com.example.rightcleaner.helper.Role;
+import com.example.rightcleaner.helper.ServiceCategory;
 
 public class ServiceProviderSignUpPage extends AppCompatActivity {
 
@@ -33,7 +34,7 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
         phoneNumber=findViewById(R.id.phoneService);
         pass=findViewById(R.id.passwordService);
         String[] arraySpinner = new String[] {
-                "House Cleaning", "Gardener", "Electrician"
+                ServiceCategory.ELECTRICIAN.toString(), ServiceCategory.HOUSE_CLEANING.toString(), ServiceCategory.GARDENER.toString()
         };
         String[] arraySpinnerPrice = new String[] {
                 "10 - 20", "20 - 30", "30 - 40","Other"

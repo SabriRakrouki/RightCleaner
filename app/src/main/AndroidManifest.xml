@@ -25,9 +25,19 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ServiceChoice"
+            android:exported="false"
+            android:label="Home Page"
+            >
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ServiveProviderHomePage"
             android:exported="false"
-            android:label="Home page"
+            android:label="Service Choice"
             >
             <meta-data
                 android:name="android.app.lib_name"
