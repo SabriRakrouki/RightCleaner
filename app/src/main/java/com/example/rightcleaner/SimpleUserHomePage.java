@@ -9,6 +9,6 @@ public class SimpleUserHomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_user_home_page);
+        setContentView(R.layout.choose_service_page);
     }
 }
