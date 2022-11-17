@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.rightcleaner.dao.UserDAO;
 import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.entity.User;
+import com.example.rightcleaner.helper.Role;
 
 public class SignUp extends AppCompatActivity {
         EditText username,email,phoneNumber,pass;
@@ -36,7 +37,7 @@ public class SignUp extends AppCompatActivity {
                     nUser.setEmail(email.getText().toString());
                     nUser.setPassword(pass.getText().toString());
                     nUser.setPhoneNumber(phoneNumber.getText().toString());
-                    nUser.setRole("simpleUser");
+                    nUser.setRole(Role.SIMPLE_USER.toString());
                     if(validateInput(nUser)){
 
                        new Thread(new Runnable() {

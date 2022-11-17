@@ -17,6 +17,7 @@ import com.example.rightcleaner.dao.UserServiceProviderDAO;
 import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.entity.User;
 import com.example.rightcleaner.entity.UserServiceProvider;
+import com.example.rightcleaner.helper.Role;
 
 public class ServiceProviderSignUpPage extends AppCompatActivity {
 
@@ -61,7 +62,7 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
                 user.setPhoneNumber(phoneNumber.getText().toString());
                 user.setService(service.getSelectedItem().toString());
                 user.setPrice(price.getSelectedItem().toString());
-                user.setRole("serviceUser");
+                user.setRole(Role.Service_Provider.toString());
                     if(validateInput(user)){
                         userDAO.register(user);
                         userServiceProviderDAO.register(user);

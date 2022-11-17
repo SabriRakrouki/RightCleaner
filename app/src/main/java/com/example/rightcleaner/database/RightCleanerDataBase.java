@@ -27,6 +27,7 @@ public abstract class RightCleanerDataBase extends RoomDatabase {
             rightCleanerDataBase= Room.databaseBuilder(context,RightCleanerDataBase.class,dbName)
 
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return rightCleanerDataBase;
