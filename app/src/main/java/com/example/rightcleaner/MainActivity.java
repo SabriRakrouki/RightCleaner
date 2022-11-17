@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         username = findViewById(R.id.usernameLogin);
         password = findViewById(R.id.passwordLogin);
-        loginBtn = findViewById(R.id.loginBtn);
+
+        loginBtn = findViewById(R.id.HouseCleaningBtn);
+
 
         rightCleanerDataBase.isOpen();
 

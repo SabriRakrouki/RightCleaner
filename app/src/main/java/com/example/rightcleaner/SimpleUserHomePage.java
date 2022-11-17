@@ -20,12 +20,14 @@ public class SimpleUserHomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         sessionManagement=new SessionManagement(this);
         rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
         userDAO=rightCleanerDataBase.userDAO();
         setContentView(R.layout.activity_simple_user_home_page);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
     }
 
     @Override
