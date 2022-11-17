@@ -33,11 +33,11 @@
         android:id="@+id/details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:background="@drawable/victore_button"
+        android:clickable="true"
         app:srcCompat="@android:drawable/ic_input_add"
         tools:layout_editor_absoluteX="331dp"
-        tools:layout_editor_absoluteY="7dp" />
+        tools:layout_editor_absoluteY="24dp" />
 
     <TextView
         android:id="@+id/textView11"
