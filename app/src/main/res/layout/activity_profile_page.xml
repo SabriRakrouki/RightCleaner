@@ -46,13 +46,13 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="346dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="136dp"
+        android:layout_width="215dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="120dp"
         android:text="Review"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/textView10"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintHorizontal_bias="0.279"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Birth Date:"
+        android:text="Price:"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -89,20 +89,11 @@
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="337dp"
-        android:layout_height="384dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
     <TextView
         android:id="@+id/emailT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -112,7 +103,7 @@
         android:id="@+id/birthDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView9"
@@ -127,5 +118,23 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/birthDate" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="352dp"
+        android:layout_height="191dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        tools:layout_editor_absoluteY="504dp"
+        tools:listitem="@layout/list_review" />
+
+    <Button
+        android:id="@+id/btnSignupService"
+        android:layout_width="125dp"
+        android:layout_height="47dp"
+        android:background="@drawable/victore_button"
+        android:text="Add"
+        tools:layout_editor_absoluteX="270dp"
+        tools:layout_editor_absoluteY="431dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
