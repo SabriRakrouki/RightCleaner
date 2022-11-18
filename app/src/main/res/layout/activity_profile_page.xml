@@ -126,6 +126,7 @@
         app:layout_constraintTop_toBottomOf="@+id/birthDate" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listReview"
         android:layout_width="352dp"
         android:layout_height="191dp"
         app:layout_constraintEnd_toEndOf="@+id/textView7"
