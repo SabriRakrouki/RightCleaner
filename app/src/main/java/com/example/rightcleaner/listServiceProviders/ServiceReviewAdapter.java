@@ -1,6 +1,7 @@
 package com.example.rightcleaner.listServiceProviders;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,9 @@ import java.util.List;
 public class ServiceReviewAdapter extends RecyclerView.Adapter<ServiceReviewViewHolder> {
     List<Review> serviceReviewList;
     SessionManagement sessionManagement;
-
+    Context context;
     public ServiceReviewAdapter(Context context) {
+        this.context=context;
         RightCleanerDataBase rightCleanerDataBase = RightCleanerDataBase.getRightCleanerDataBase(context);
         sessionManagement = new SessionManagement(context);
         serviceReviewList = rightCleanerDataBase.reviewDAO().getReviewByEmailServiceUser(sessionManagement.getProfile().get("profile").toString());
@@ -32,15 +34,21 @@ public class ServiceReviewAdapter extends RecyclerView.Adapter<ServiceReviewView
     @NonNull
     @Override
     public ServiceReviewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.list_review,parent,false);
+        Log.i("list",""+serviceReviewList.isEmpty());
+
+        View view= LayoutInflater.from(context).inflate(R.layout.list_review,parent,false);
         return new ServiceReviewViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ServiceReviewViewHolder holder, int position) {
-        Review review=serviceReviewList.get(position);
-        holder.textReview.setText(review.getReview());
-        holder.textUser.setText(review.getEmailSimpleUser());
+
+        if(serviceReviewList.size()!=0){
+            Review review=serviceReviewList.get(position);
+            holder.textReview.setText(review.getReview());
+            holder.textUser.setText(review.getEmailSimpleUser());
+        }
+
     }
 
     @Override

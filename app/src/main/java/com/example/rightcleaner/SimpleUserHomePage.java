@@ -32,7 +32,6 @@ public class SimpleUserHomePage extends AppCompatActivity {
         setSupportActionBar(toolbar);
         listproviders=findViewById(R.id.listproviders);
         ServiceProviderAdapter adapter = new ServiceProviderAdapter(this);
-
         listproviders.setAdapter(adapter);
         listproviders.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
 
@@ -54,6 +53,7 @@ public class SimpleUserHomePage extends AppCompatActivity {
                 break;
             }
             case R.id.profileP:{
+                sessionManagement.cleanProfile();
                 startActivity(new Intent(this,ProfilePage.class));
                 break;
             }

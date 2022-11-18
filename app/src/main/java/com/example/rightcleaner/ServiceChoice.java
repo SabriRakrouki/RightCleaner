@@ -76,6 +76,8 @@ public class ServiceChoice extends AppCompatActivity {
                 break;
             }
             case R.id.profileP:{
+                sessionManagement.cleanProfile();
+
                 startActivity(new Intent(this,ProfilePage.class));
                 break;
             }

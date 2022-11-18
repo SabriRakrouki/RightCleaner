@@ -125,20 +125,12 @@
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/birthDate" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listReview"
-        android:layout_width="352dp"
-        android:layout_height="191dp"
-        app:layout_constraintEnd_toEndOf="@+id/textView7"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        tools:layout_editor_absoluteY="504dp"
-        tools:listitem="@layout/list_review" />
+
 
     <Button
         android:id="@+id/addRev"
         android:layout_width="125dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:background="@drawable/victore_button"
         android:text="Add"
@@ -146,5 +138,13 @@
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.0" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listReview"
+        android:layout_width="409dp"
+        android:layout_height="569dp"
+        android:layout_marginTop="1dp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:listitem="@layout/list_review" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

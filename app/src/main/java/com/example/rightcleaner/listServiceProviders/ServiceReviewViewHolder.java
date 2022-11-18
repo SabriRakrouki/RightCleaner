@@ -16,4 +16,5 @@ public class ServiceReviewViewHolder extends RecyclerView.ViewHolder {
         textReview=itemView.findViewById(R.id.textReview);
         textUser=itemView.findViewById(R.id.textUser);
     }
+
 }

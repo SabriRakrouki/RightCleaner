@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,9 +22,7 @@ import com.example.rightcleaner.dao.UserServiceProviderDAO;
 import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.entity.User;
 import com.example.rightcleaner.entity.UserServiceProvider;
-import com.example.rightcleaner.helper.Role;
 import com.example.rightcleaner.helper.SessionManagement;
-import com.example.rightcleaner.listServiceProviders.ServiceProviderAdapter;
 import com.example.rightcleaner.listServiceProviders.ServiceReviewAdapter;
 
 public class ProfilePage extends AppCompatActivity {
@@ -46,9 +45,9 @@ public class ProfilePage extends AppCompatActivity {
         userDAO=rightCleanerDataBase.userDAO();
         userServiceProviderDAO=rightCleanerDataBase.userServiceProviderDAO();
         listReview=findViewById(R.id.listReview);
-        ServiceReviewAdapter adapter = new ServiceReviewAdapter(this);
-        listReview.setAdapter(adapter);
-        listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
+        ServiceReviewAdapter adapter = new ServiceReviewAdapter(getApplicationContext());
+        //listReview.setAdapter(adapter);
+        //listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         setContentView(R.layout.activity_profile_page);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

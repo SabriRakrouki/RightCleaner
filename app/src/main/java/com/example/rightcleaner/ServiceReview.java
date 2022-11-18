@@ -1,5 +1,9 @@
 package com.example.rightcleaner;
 
+import static android.content.Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP;
+import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
