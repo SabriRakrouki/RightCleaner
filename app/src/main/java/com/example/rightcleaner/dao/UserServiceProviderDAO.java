@@ -14,6 +14,8 @@ import java.util.List;
 public interface UserServiceProviderDAO {
     @Query("SELECT * FROM UserServiceProvider")
     List<UserServiceProvider> getAll();
+    @Query("SELECT * FROM USERSERVICEPROVIDER where service=:service")
+    List<UserServiceProvider> getByService(String service);
     @Insert
     void register(UserServiceProvider userServiceProvider);
     @Update

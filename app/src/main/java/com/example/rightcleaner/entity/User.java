@@ -2,18 +2,18 @@ package com.example.rightcleaner.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "users")
+@Entity(tableName = "users",indices = {@Index(value = {"email"},unique = true)})
 public class User {
     @PrimaryKey(autoGenerate = true)
     Integer id;
     @ColumnInfo(name = "password")
     String password;
-    @ColumnInfo(name = "name")
-    String name;
-    @ColumnInfo(name = "familyName")
-    String familyName;
+    @ColumnInfo(name = "username")
+    String username;
+
     @ColumnInfo(name = "email")
     String email;
     @ColumnInfo(name = "phoneNumber")
@@ -29,21 +29,15 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getFamilyName() {
-        return familyName;
-    }
 
-    public void setFamilyName(String familyName) {
-        this.familyName = familyName;
-    }
 
     public String getPassword() {
         return password;

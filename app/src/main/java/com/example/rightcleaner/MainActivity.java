@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rightcleaner.dao.UserDAO;
@@ -17,6 +18,7 @@ import com.example.rightcleaner.helper.Role;
 import com.example.rightcleaner.helper.SessionManagement;
 
 public class MainActivity extends AppCompatActivity {
+    TextView creatAccoutUser,createServiceProvider;
     EditText username;
     EditText password;
     Button loginBtn;
@@ -37,7 +39,22 @@ public class MainActivity extends AppCompatActivity {
         password = findViewById(R.id.passwordLogin);
 
         loginBtn = findViewById(R.id.HouseCleaningBtn);
-
+        creatAccoutUser=findViewById(R.id.signUpLink);
+        createServiceProvider=findViewById(R.id.signUpProvider);
+        creatAccoutUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),SignUp.class);
+                startActivity(intent);
+            }
+        });
+        createServiceProvider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),ServiceProviderSignUpPage.class);
+                startActivity(intent);
+            }
+        });
 
         rightCleanerDataBase.isOpen();
 

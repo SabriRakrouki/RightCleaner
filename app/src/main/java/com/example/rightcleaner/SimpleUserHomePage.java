@@ -3,6 +3,8 @@ package com.example.rightcleaner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +14,13 @@ import android.view.MenuItem;
 import com.example.rightcleaner.dao.UserDAO;
 import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.helper.SessionManagement;
+import com.example.rightcleaner.listServiceProviders.ServiceProviderAdapter;
 
 public class SimpleUserHomePage extends AppCompatActivity {
     RightCleanerDataBase rightCleanerDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;
+    RecyclerView listproviders;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +30,11 @@ public class SimpleUserHomePage extends AppCompatActivity {
         setContentView(R.layout.activity_simple_user_home_page);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        listproviders=findViewById(R.id.listproviders);
+        ServiceProviderAdapter adapter = new ServiceProviderAdapter(this);
+        listproviders.setAdapter(adapter);
+        listproviders.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
+
 
     }
 
@@ -58,6 +67,10 @@ public class SimpleUserHomePage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        listproviders=findViewById(R.id.listproviders);
+        ServiceProviderAdapter adapter = new ServiceProviderAdapter(this);
+        listproviders.setAdapter(adapter);
+        listproviders.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         if (!sessionManagement.isLoggedIn()) {
             sendToLoginPage();
         }

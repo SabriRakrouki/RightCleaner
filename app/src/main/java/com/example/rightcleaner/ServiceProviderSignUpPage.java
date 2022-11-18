@@ -3,6 +3,7 @@ package com.example.rightcleaner;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rightcleaner.dao.UserDAO;
@@ -25,6 +27,7 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
     EditText username,email,phoneNumber,pass;
     Spinner service,price;
     Button signup;
+    TextView loginView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,14 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
         email=findViewById(R.id.emailService);
         phoneNumber=findViewById(R.id.phoneService);
         pass=findViewById(R.id.passwordService);
+        loginView=findViewById(R.id.logInSignU);
+        loginView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
         String[] arraySpinner = new String[] {
                 ServiceCategory.ELECTRICIAN.toString(), ServiceCategory.HOUSE_CLEANING.toString(), ServiceCategory.GARDENER.toString()
         };
