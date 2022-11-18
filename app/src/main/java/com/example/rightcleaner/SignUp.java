@@ -2,11 +2,13 @@ package com.example.rightcleaner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.rightcleaner.dao.UserDAO;
@@ -16,7 +18,7 @@ import com.example.rightcleaner.helper.Role;
 
 public class SignUp extends AppCompatActivity {
         EditText username,email,phoneNumber,pass;
-
+        TextView loginView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,14 @@ public class SignUp extends AppCompatActivity {
         email=findViewById(R.id.email);
         phoneNumber=findViewById(R.id.phoneN);
         pass=findViewById(R.id.pass);
+        loginView=findViewById(R.id.logInSignU);
+        loginView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
       Button  signup=findViewById(R.id.btnSignup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override

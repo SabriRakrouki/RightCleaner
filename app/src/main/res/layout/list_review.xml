@@ -27,7 +27,7 @@
         tools:layout_editor_absoluteY="96dp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tService"
         android:layout_width="108dp"
         android:layout_height="21dp"
         android:text="user@user.com"
