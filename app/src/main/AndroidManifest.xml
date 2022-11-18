@@ -53,6 +53,16 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ServiceMeet"
+            android:exported="false"
+            android:label="Service Meeting"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
             android:name=".SimpleUserHomePage"
             android:exported="false"
             android:label="Home page"

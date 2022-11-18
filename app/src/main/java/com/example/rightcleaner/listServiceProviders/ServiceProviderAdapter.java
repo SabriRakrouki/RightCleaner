@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rightcleaner.ProfilePage;
 import com.example.rightcleaner.R;
+import com.example.rightcleaner.ServiceMeet;
 import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.entity.UserServiceProvider;
 import com.example.rightcleaner.helper.SessionManagement;
@@ -52,6 +53,14 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
             sessionManagement.setProfile(provider);
             context.startActivity(intent);
 
+        }
+    });
+    holder.reserve.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent=new Intent(context, ServiceMeet.class);
+            sessionManagement.setProfile(provider);
+            context.startActivity(intent);
         }
     });
     }
