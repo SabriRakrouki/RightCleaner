@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import com.example.rightcleaner.MainActivity;
+import com.example.rightcleaner.entity.User;
 
 import java.util.HashMap;
 
@@ -26,7 +27,7 @@ public class SessionManagement {
 
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_SERVICE_CHOICE = "service_choice";
-
+    public static final String KEY_PROFILE="profile";
 
     public SessionManagement (Context context){
         this._context = context;
@@ -88,5 +89,22 @@ public class SessionManagement {
         service.put(KEY_SERVICE_CHOICE,pref.getString(KEY_SERVICE_CHOICE,null));
         return service;
     }
+    public void setProfile(User user){
+        editor.putString(KEY_PROFILE,user.getEmail());
+        editor.commit();
+    }
+    public HashMap<String,String> getProfile(){
+        HashMap<String,String> profile=new HashMap<String,String>();
+        profile.put(KEY_PROFILE,pref.getString(KEY_PROFILE,""));
+        return profile;
+    }
+    public void  cleanProfile(){
+        editor.remove(KEY_PROFILE);
+        editor.commit();
+    }
+
+
+
+
 
 }

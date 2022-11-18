@@ -31,7 +31,7 @@
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:text="Username"
+
         android:background="@drawable/victore_input_text"
         app:layout_constraintBottom_toTopOf="@+id/pass"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:text="Password"
+
         android:hint="Password"
         android:paddingLeft="10px"
         android:inputType="textPassword"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:text="Email"
+
         android:hint="Email"
         android:paddingLeft="10px"
         android:inputType="textEmailAddress"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:text="Phone number"
+       
         android:hint="Phone number"
         android:paddingLeft="10px"
         android:inputType="phone"

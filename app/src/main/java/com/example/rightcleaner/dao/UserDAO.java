@@ -16,6 +16,8 @@ public interface UserDAO {
     List<User> getAll();
     @Query("SELECT u.* FROM users as  u WHERE id=:userId")
     User getUserId(int userId);
+    @Query("SELECT u.* FROM users as  u WHERE email=:email")
+    User getUserByEmail(String email);
     @Query("SELECT u.* FROM users u WHERE u.email=:email AND u.password=:password")
     User Login(String email,String password);
     @Insert

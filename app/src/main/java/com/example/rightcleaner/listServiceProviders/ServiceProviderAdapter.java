@@ -23,6 +23,8 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
         RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(context);
         sessionManagement=new SessionManagement(context);
         serviceProviderList=rightCleanerDataBase.userServiceProviderDAO().getByService(sessionManagement.getServiceChoice().get("service_choice").toString());
+
+
     }
 
 
@@ -36,7 +38,7 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
     @Override
     public void onBindViewHolder(@NonNull ServiceProviderViewHolder holder, int position) {
     UserServiceProvider provider=serviceProviderList.get(position);
-    holder.thead.setText(provider.getName()+" "+provider.getFamilyName());
+    holder.thead.setText(provider.getUsername());
     holder.tService.setText(provider.getService());
     holder.tprice.setText(provider.getPrice());
     holder.details.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +52,6 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
 
     @Override
     public int getItemCount() {
-        return 0;
+        return serviceProviderList.size();
     }
 }

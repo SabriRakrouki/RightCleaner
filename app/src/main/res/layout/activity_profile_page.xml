@@ -135,7 +135,7 @@
         tools:listitem="@layout/list_review" />
 
     <Button
-        android:id="@+id/btnSignupService"
+        android:id="@+id/addRev"
         android:layout_width="125dp"
         android:layout_height="47dp"
         android:layout_marginStart="20dp"

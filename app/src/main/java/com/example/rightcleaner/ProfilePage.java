@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.rightcleaner.dao.UserDAO;
@@ -22,7 +24,7 @@ public class ProfilePage extends AppCompatActivity {
     RightCleanerDataBase rightCleanerDataBase;
     UserDAO userDAO;
     SessionManagement sessionManagement;
-
+    Button addrev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class ProfilePage extends AppCompatActivity {
         User user = (User) getIntent().getSerializableExtra("user");
         fillProfile();
         if(user!=null){
-            fname.setText(user.getFamilyName() +" "+user.getName());
+            fname.setText(user.getUsername());
             email.setText(user.getEmail());
             birthdate.setText("test");
             phone.setText(user.getPhoneNumber());
@@ -91,13 +93,22 @@ public class ProfilePage extends AppCompatActivity {
     }
     public void fillProfile(){
         fname=findViewById(R.id.fname);
+        addrev=findViewById(R.id.addRev);
         email=findViewById(R.id.emailT);
         birthdate=findViewById(R.id.birthDate);
         phone=findViewById(R.id.phone);
         User user=userDAO.getUserId(Integer.parseInt(sessionManagement.getUserDetails().get("id").toString()));
-        fname.setText(user.getName()+" "+user.getFamilyName());
+        fname.setText(user.getUsername());
         email.setText(user.getEmail());
         phone.setText(user.getPhoneNumber());
+        if(sessionManagement.getProfile().get("profile").toString().isEmpty()==false){
+            if(user.getEmail().equals(sessionManagement.getProfile().get("profile").toString())){
+                addrev.setVisibility(View.GONE);
+            }
+        }else {
+            addrev.setVisibility(View.GONE);
+        }
+
 
 
 

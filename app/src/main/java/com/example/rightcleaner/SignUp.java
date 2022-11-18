@@ -19,6 +19,7 @@ import com.example.rightcleaner.helper.Role;
 public class SignUp extends AppCompatActivity {
         EditText username,email,phoneNumber,pass;
         TextView loginView;
+        Button addRev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,7 @@ public class SignUp extends AppCompatActivity {
                 RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
 
                 final UserDAO userDAO=rightCleanerDataBase.userDAO();
+                nUser.setUsername(username.getText().toString());
                     nUser.setEmail(email.getText().toString());
                     nUser.setPassword(pass.getText().toString());
                     nUser.setPhoneNumber(phoneNumber.getText().toString());
