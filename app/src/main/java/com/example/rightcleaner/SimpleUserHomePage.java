@@ -67,6 +67,10 @@ public class SimpleUserHomePage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        listproviders=findViewById(R.id.listproviders);
+        ServiceProviderAdapter adapter = new ServiceProviderAdapter(this);
+        listproviders.setAdapter(adapter);
+        listproviders.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         if (!sessionManagement.isLoggedIn()) {
             sendToLoginPage();
         }
