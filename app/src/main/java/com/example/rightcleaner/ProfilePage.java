@@ -3,6 +3,8 @@ package com.example.rightcleaner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,12 +23,15 @@ import com.example.rightcleaner.entity.User;
 import com.example.rightcleaner.entity.UserServiceProvider;
 import com.example.rightcleaner.helper.Role;
 import com.example.rightcleaner.helper.SessionManagement;
+import com.example.rightcleaner.listServiceProviders.ServiceProviderAdapter;
+import com.example.rightcleaner.listServiceProviders.ServiceReviewAdapter;
 
 public class ProfilePage extends AppCompatActivity {
 
 
     TextView fname,email,phone,price;
     RightCleanerDataBase rightCleanerDataBase;
+    RecyclerView listReview;
     UserDAO userDAO;
     UserServiceProviderDAO  userServiceProviderDAO;
     SessionManagement sessionManagement;
@@ -40,6 +45,10 @@ public class ProfilePage extends AppCompatActivity {
         rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
         userDAO=rightCleanerDataBase.userDAO();
         userServiceProviderDAO=rightCleanerDataBase.userServiceProviderDAO();
+        listReview=findViewById(R.id.listReview);
+        ServiceReviewAdapter adapter = new ServiceReviewAdapter(this);
+        listReview.setAdapter(adapter);
+        listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         setContentView(R.layout.activity_profile_page);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -94,6 +103,11 @@ public class ProfilePage extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        listReview=findViewById(R.id.listReview);
+        ServiceReviewAdapter adapter = new ServiceReviewAdapter(this);
+        listReview.setAdapter(adapter);
+        listReview.setLayoutManager(new LinearLayoutManager(getApplicationContext(),LinearLayoutManager.VERTICAL,false));
         if (!sessionManagement.isLoggedIn()) {
             sendToLoginPage();
         }
