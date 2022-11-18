@@ -1,5 +1,6 @@
 package com.example.rightcleaner.dao;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -8,12 +9,14 @@ import androidx.room.Update;
 import com.example.rightcleaner.entity.Review;
 
 import java.util.List;
-
+@Dao
 public interface ReviewDAO {
     @Query("SELECT * FROM review")
     List<Review> getAll();
     @Query("SELECT r.* FROM review as  r WHERE r.emailServiceUser=:emailServiceUser")
-    Review getReviewByEmailServiceUser(String emailServiceUser);
+    List<Review> getReviewByEmailServiceUser(String emailServiceUser);
+    @Query("SELECT r.* FROM review as  r WHERE r.emailSimpleUser=:emailSimpleUser")
+    List<Review> getReviewByEmailSimpleUser(String emailSimpleUser);
     @Insert
     void addReview(Review review);
     @Update
