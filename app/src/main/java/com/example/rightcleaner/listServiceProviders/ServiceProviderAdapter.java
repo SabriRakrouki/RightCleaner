@@ -1,6 +1,7 @@
 package com.example.rightcleaner.listServiceProviders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.rightcleaner.ProfilePage;
 import com.example.rightcleaner.R;
 import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.entity.UserServiceProvider;
@@ -19,7 +21,9 @@ import java.util.List;
 public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProviderViewHolder> {
     List<UserServiceProvider> serviceProviderList;
     SessionManagement sessionManagement;
+    Context context;
     public ServiceProviderAdapter(Context context){
+        this.context=context;
         RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(context);
         sessionManagement=new SessionManagement(context);
         serviceProviderList=rightCleanerDataBase.userServiceProviderDAO().getByService(sessionManagement.getServiceChoice().get("service_choice").toString());
@@ -44,7 +48,9 @@ public class ServiceProviderAdapter extends RecyclerView.Adapter<ServiceProvider
     holder.details.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //go details
+            Intent intent=new Intent(context, ProfilePage.class);
+            sessionManagement.setProfile(provider);
+            context.startActivity(intent);
 
         }
     });

@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,25 +15,31 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.rightcleaner.dao.UserDAO;
+import com.example.rightcleaner.dao.UserServiceProviderDAO;
 import com.example.rightcleaner.database.RightCleanerDataBase;
 import com.example.rightcleaner.entity.User;
+import com.example.rightcleaner.entity.UserServiceProvider;
+import com.example.rightcleaner.helper.Role;
 import com.example.rightcleaner.helper.SessionManagement;
 
 public class ProfilePage extends AppCompatActivity {
 
 
-    TextView fname,email,birthdate,phone;
+    TextView fname,email,phone,price;
     RightCleanerDataBase rightCleanerDataBase;
     UserDAO userDAO;
+    UserServiceProviderDAO  userServiceProviderDAO;
     SessionManagement sessionManagement;
     Button addrev;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        this.context=this;
         sessionManagement=new SessionManagement(getApplicationContext());
         rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
         userDAO=rightCleanerDataBase.userDAO();
+        userServiceProviderDAO=rightCleanerDataBase.userServiceProviderDAO();
         setContentView(R.layout.activity_profile_page);
         Toolbar toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -39,16 +47,18 @@ public class ProfilePage extends AppCompatActivity {
         UserDAO userDAO=rightCleanerDataBase.userDAO();
         User user = (User) getIntent().getSerializableExtra("user");
         fillProfile();
+        price.setText("NNan");
+
         if(user!=null){
             fname.setText(user.getUsername());
             email.setText(user.getEmail());
-            birthdate.setText("test");
+            price.setText("test");
             phone.setText(user.getPhoneNumber());
 
         }else{
             fname.setText("NNan");
             email.setText("NNan");
-            birthdate.setText("NNan");
+            price.setText("NNan");
             phone.setText("NNan");
         }
     }
@@ -68,6 +78,7 @@ public class ProfilePage extends AppCompatActivity {
                 break;
             }
             case R.id.profileP:{
+                sessionManagement.cleanProfile();
                 startActivity(new Intent(this,ProfilePage.class));
                 break;
             }
@@ -78,6 +89,7 @@ public class ProfilePage extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     @Override
     protected void onStart() {
@@ -95,19 +107,31 @@ public class ProfilePage extends AppCompatActivity {
         fname=findViewById(R.id.fname);
         addrev=findViewById(R.id.addRev);
         email=findViewById(R.id.emailT);
-        birthdate=findViewById(R.id.birthDate);
         phone=findViewById(R.id.phone);
+        price=findViewById(R.id.birthDate);
         User user=userDAO.getUserId(Integer.parseInt(sessionManagement.getUserDetails().get("id").toString()));
         fname.setText(user.getUsername());
+        price.setText("NaN");
         email.setText(user.getEmail());
         phone.setText(user.getPhoneNumber());
-        if(sessionManagement.getProfile().get("profile").toString().isEmpty()==false){
-            if(user.getEmail().equals(sessionManagement.getProfile().get("profile").toString())){
-                addrev.setVisibility(View.GONE);
-            }
-        }else {
+        Log.i("test profile",""+user.getEmail().equals(sessionManagement.getProfile().get("profile").toString()));
+        if(sessionManagement.getProfile().get("profile").toString().isEmpty()){
             addrev.setVisibility(View.GONE);
+        }else{
+            UserServiceProvider userP= userServiceProviderDAO.getByEmail(sessionManagement.getProfile().get("profile").toString());
+            fname.setText(userP.getUsername());
+            price.setText(userP.getPrice());
+            email.setText(userP.getEmail());
+            phone.setText(userP.getPhoneNumber());
         }
+
+        addrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              Intent intent=  new Intent(context,ServiceReview.class);
+                startActivity(intent);
+            }
+        });
 
 
 

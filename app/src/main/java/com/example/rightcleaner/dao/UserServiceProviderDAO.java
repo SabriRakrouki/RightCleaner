@@ -16,6 +16,8 @@ public interface UserServiceProviderDAO {
     List<UserServiceProvider> getAll();
     @Query("SELECT * FROM USERSERVICEPROVIDER where service=:service")
     List<UserServiceProvider> getByService(String service);
+    @Query("SELECT  * FROM USERSERVICEPROVIDER WHERE email=:email")
+    UserServiceProvider getByEmail(String email);
     @Insert
     void register(UserServiceProvider userServiceProvider);
     @Update

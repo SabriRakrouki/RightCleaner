@@ -21,16 +21,23 @@ import com.example.rightcleaner.entity.UserServiceProvider;
 import com.example.rightcleaner.helper.ReviewStatus;
 import com.example.rightcleaner.helper.Role;
 import com.example.rightcleaner.helper.ServiceCategory;
+import com.example.rightcleaner.helper.SessionManagement;
 
 public class ServiceReview extends AppCompatActivity {
 
     EditText reviewText;
     Spinner spinnerReview;
     Button addReview;
+    RightCleanerDataBase rightCleanerDataBase;
+    ReviewDAO reviewDAO;
+    SessionManagement sessionManagement;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
+        sessionManagement=new SessionManagement(this);
+        rightCleanerDataBase= RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
+        reviewDAO=rightCleanerDataBase.reviewDAO();
         reviewText=findViewById(R.id.ReviewText);
         String[] arraySpinnerReview = new String[] {
                 ReviewStatus.GOOD.toString(), ReviewStatus.AVERAGE.toString(), ReviewStatus.BAD.toString()
@@ -44,12 +51,13 @@ public class ServiceReview extends AppCompatActivity {
         addReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RightCleanerDataBase rightCleanerDataBase=RightCleanerDataBase.getRightCleanerDataBase(getApplicationContext());
-                final ReviewDAO reviewDAO=rightCleanerDataBase.reviewDAO();
+
                 Review review = new Review();
 
                 review.setReview(reviewText.getText().toString());
                 review.setStatus(spinnerReview.getSelectedItem().toString());
+                review.setEmailSimpleUser(sessionManagement.getUserDetails().get("email").toString());
+                review.setEmailServiceUser(sessionManagement.getProfile().get("profile").toString());
                 if(validateInput(review)){
                     reviewDAO.addReview(review);
                     Toast.makeText(getApplicationContext(),"Add Review",Toast.LENGTH_SHORT).show();

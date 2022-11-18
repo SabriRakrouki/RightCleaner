@@ -68,7 +68,7 @@ public class ServiceProviderSignUpPage extends AppCompatActivity {
                 final UserDAO  userDAO=rightCleanerDataBase.userDAO();
                 final UserServiceProviderDAO  userServiceProviderDAO=rightCleanerDataBase.userServiceProviderDAO();
                 UserServiceProvider user = new UserServiceProvider();
-
+                user.setUsername(username.getText().toString());
                 user.setEmail(email.getText().toString());
                 user.setPassword(pass.getText().toString());
                 user.setPhoneNumber(phoneNumber.getText().toString());

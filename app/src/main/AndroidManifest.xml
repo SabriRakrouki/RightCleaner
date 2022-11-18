@@ -44,6 +44,15 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".ServiceReview"
+            android:exported="false"
+            android:label="Service Review"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".SimpleUserHomePage"
             android:exported="false"
             android:label="Home page"
